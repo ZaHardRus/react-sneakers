@@ -3,6 +3,7 @@
   display: flex;
   justify-content: space-between;
   padding: 40px;
+  
 
   .headerLeft {
     display: flex;
@@ -22,5 +23,12 @@
     .headerCart, .headerAvatar, .headerLike {
       cursor: pointer;
     }
+  }
+}
+@media (max-width:760px) {
+  .header{
+    flex-wrap: wrap;
+    gap: 60px;
+    justify-content: center;
   }
 }

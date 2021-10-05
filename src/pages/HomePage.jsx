@@ -34,7 +34,7 @@ export const HomePage = ({
     }
     return (
         <div className="content p-40">
-            <div className='d-flex justify-between align-center'>
+            <div className='search d-flex justify-between align-center'>
                 {searchStr ? <h1>Идет поиск</h1> : <h1>Все кроссовки</h1>}
                 <div className="search-block d-flex align-center">
                     <img src={Loupe} alt="search"/>
