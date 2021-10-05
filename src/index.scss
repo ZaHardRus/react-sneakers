@@ -1,13 +1,115 @@
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: -apple-system, BlinkMacSystemFont, 'Inter', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  background-color: #d2f1ff;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
+
+h1, h2, h3, h4, h5, h6, p {
+  margin: 0;
+  padding: 0;
+}
+
+* {
+  font-family: 'Inter', sans-serif;
+}
+
+.wrapper {
+  max-width: 1080px;
+  background-color: #fff;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, .04);
+  border-radius: 20px;
+
+  margin: 50px auto;
+}
+
+.content {
+  min-height: calc(100vh - 180px);
+
+}
+
+.cards {
+  gap: 20px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+}
+
+.green_button {
+  display: flex;
+  justify-content: center;
+  gap: 30px;
+  align-items: center;
+  width: 325px;
+  min-height: 55px;
+  background-color: #9DD458;
+  border-radius: 18px;
+  border: none;
+  margin: 0 auto;
+  font-size: 16px;
+  font-weight: 500;
+  color: #fff;
+  cursor: pointer;
+  transition: .3s;
+
+  &:hover {
+    background-color: #80b440;
+  }
+}
+
+
+.search-block {
+  border: 1px solid #F3F3F3;
+  padding: 15px;
+  border-radius: 10px;
+  gap: 14px;
+  width: 250px;
+  height: 45px;
+
+  input {
+    border: none;
+
+    ::placeholder {
+      color: #C4C4C4;
+      font-size: 14px;
+    }
+  }
+}
+
+.cardsOrderWrapper {
+  border: 1px solid #C4C4C4;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  padding: 20px;
+  gap: 30px;
+  margin-bottom: 20px;
+
+  .cardOrder {
+    display: flex;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+}
+
+.orderInfo {
+  display: flex;
+  justify-content: center;
+  gap: 10px;
+}
+
+.orderCost,
+.orderDate {
+  border: 1px solid grey;
+  border-radius: 10px;
+  display: inline-block;
+  padding: 5px;
+  background-color: #ffffd8;
+}
+
+

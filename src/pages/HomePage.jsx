@@ -1,13 +1,37 @@
 import Loupe from "../assets/loupe.svg";
 import {Card} from "../components/Card/Card";
+import {useContext} from "react";
+import {AppContext} from "../App";
 
-export const HomePage = ({searchStr,
-    searchHandler,
-    cards,
-    setSelectedProducts,
-    addToCart,
-    addToFavorites
-}) => {
+export const HomePage = ({
+                             searchStr,
+                             searchHandler,
+                             addToCart,
+                             addToFavorites,
+                             isLoading,
+                             setSelectedProducts
+                         }) => {
+    const {cards, isItemAdded, isItemFavorited} = useContext(AppContext)
+
+    const renderItems = () => {
+        const filtredItems = cards.filter(el => el.name.toLowerCase().includes(searchStr.toLowerCase()))
+
+        return (isLoading
+            ? [...Array(8)].map((el, i) => <Card
+                key={i}
+                isLoading={isLoading}
+            />)
+            : filtredItems).map((el, i) => <Card
+            setSelectedProducts={setSelectedProducts}
+            key={i}
+            info={el}
+            addToCart={() => addToCart(el)}
+            addToFavorites={() => addToFavorites(el)}
+            favorite={isItemFavorited(el.id)}
+            added={isItemAdded(el.id)}
+            isLoading={isLoading}
+        />)
+    }
     return (
         <div className="content p-40">
             <div className='d-flex justify-between align-center'>
@@ -17,24 +41,13 @@ export const HomePage = ({searchStr,
                     <input
                         type="text"
                         placeholder='Поиск...'
-                        value={searchStr}
+                        defaultValue={searchStr}
                         onChange={searchHandler}
                     />
                 </div>
             </div>
             <div className="cards d-flex">
-                {cards
-                    .filter(el => {
-                        const reg = new RegExp(searchStr, 'gui')
-                        return el.name.match(reg)
-                    })
-                    .map((el, i) => <Card
-                        setSelectedProducts={setSelectedProducts}
-                        key={i}
-                        info={el}
-                        addToCart={() => addToCart(el)}
-                        addToFavorites={() => addToFavorites(el)}
-                    />)}
+                {renderItems()}
             </div>
         </div>
     )

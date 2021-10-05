@@ -1,5 +1,13 @@
+.contentEmpty{
+    min-height: calc(100vh - 180px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
 .empty{
     display: flex;
-    justify-content: center;
+    flex-direction: column;
+    gap: 30px;
     align-items: center;
+    justify-content: center;
 }
