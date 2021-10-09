@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useEffect, useRef, useState} from "react";
 import {Route} from "react-router-dom";
 import {Drawer} from "./components/Drawer/Drawer";
 import {Header} from "./components/Header/Header";
@@ -20,7 +20,12 @@ function App() {
     let [isLoading, setIsLoading] = useState(true)
     let [searchStr, setSearchStr] = useState('')
     let [totalCost, setTotalCost] = useState(calcCost)
-
+    const body = useRef(document.body)
+    if(cartOpened){
+        body.current.style.overflow = 'hidden'
+    }else{
+        body.current.style.overflow = 'auto'
+    }
     const addToFavorites = async (obj) => {
         try {
             let res = await axios.get('https://613631038700c50017ef5490.mockapi.io/favorites')

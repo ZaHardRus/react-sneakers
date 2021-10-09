@@ -4,7 +4,7 @@ import ButtonDelete from "../../assets/delete.svg";
 import ArrowNext from "../../assets/arrow-next.svg";
 import OrderAdded from "../../assets/orderAdded.png";
 import {Info} from "../Info/Info";
-import React, {useContext, useEffect, useState} from "react";
+import React, {useContext, useEffect, useRef, useState} from "react";
 import axios from "axios";
 import {AppContext} from "../../App";
 import {formatPrice} from "../../utils/formatPrice";

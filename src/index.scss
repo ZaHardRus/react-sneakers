@@ -117,4 +117,9 @@ h1, h2, h3, h4, h5, h6, p {
   gap: 20px;
 }
 
-
+@media(max-width: 760px){
+  .search{
+    display: flex;
+    flex-direction: column;
+  }
+}
