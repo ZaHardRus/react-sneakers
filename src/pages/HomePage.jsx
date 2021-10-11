@@ -31,7 +31,7 @@ export const HomePage = ({
             favorite={isItemFavorited(el.id)}
             added={isItemAdded(el.id)}
             isLoading={isLoading}
-            sizes={el.sizes}
+            isItemAdded={isItemAdded}
         />)
     }
     return (

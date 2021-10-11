@@ -14,7 +14,7 @@ export const Card = ({info,
                      }) => {
 
     const {isItemAdded, isItemFavorited} = useContext(AppContext)
-    const sizes = [36,38,39,41,43];
+    const sizes = ['size',36,38,39,41,43];
     const [selectedSize,setSelectedSize] = useState(sizes[0])
 
     const setProduct = () => {
@@ -67,17 +67,21 @@ export const Card = ({info,
                         <p className={s.cardPrice2}>{formatPrice(info.price)} руб.</p>
                     </div>
                     <div>
-                        <p className={s.sizesTitle}>Размер:</p>
-                        <select defaultValue={selectedSize} onChange={(e)=>setSelectedSize(e.target.value)}>
-                            {sizes.map(el=> <option key={el} value={el}>{el}</option>)}
-                        </select>
+
+                        {!isItemAdded(info.id) &&<div>
+                            <p className={s.sizesTitle}>Размер:</p>
+                            <select onChange={(e)=>setSelectedSize(e.target.value)}>
+                                {sizes.map(el=> <option key={el} value={el}>{el}</option>)}
+                            </select>
+                        </div>
+                        }
                     </div>
                     <div>
                         <img
                             className={s.plus}
                             src={isItemAdded(info.id) ? ButtonAdded : ButtonPlus}
                             alt=""
-                            onClick={setProduct}
+                            onClick={selectedSize === sizes[0] ? ()=>alert('Перед добавлением товара в корзину уточните размер...') : setProduct}
                         />
                     </div>
                 </div>
