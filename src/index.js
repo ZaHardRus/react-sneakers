@@ -6,12 +6,9 @@ import {BrowserRouter} from "react-router-dom";
 import 'macro-css'
 
 
-
 ReactDOM.render(
     <BrowserRouter>
-        <React.StrictMode>
-            <App/>
-        </React.StrictMode>
+        <App/>
     </BrowserRouter>,
     document.getElementById('root')
 );

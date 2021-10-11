@@ -8,7 +8,7 @@ import {useContext} from "react";
 import {AppContext} from "../../App";
 import {formatPrice} from "../../utils/formatPrice";
 
-export const Header = (props) => {
+export const Header = ({cartLength,favoritesLength,...props}) => {
     const {totalCost} = useContext(AppContext)
     return (
         <header className={s.header}>
@@ -17,20 +17,22 @@ export const Header = (props) => {
                     <img width={40} height={40} src={HeaderLogo} alt=""/>
                     <div className={s.headerLeftInfo}>
                         <h3 className={s.title}>REACT SNEAKERS</h3>
-                        <p className={s.text}>Магазин лучших кроссовок</p>
+                        <p className={s.text}>Магазин кроссовок</p>
                     </div>
                 </div>
             </Link>
             <ul className={s.headerRight}>
-                <li className={s.headerCart} onClick={() => props.setCartOpened(true)}>
-                    <img width={18} height={18} src={HeaderCart} alt=""/>
-                </li>
-                <li className={s.headerPrice}><span>{formatPrice(totalCost)} руб.</span></li>
                 <Link to={'/favorites'}>
                     <li className={s.headerLike}>
                         <img width={18} height={18} src={HeaderLike} alt=""/>
+                        <p>{favoritesLength}</p>
                     </li>
                 </Link>
+                <li className={s.headerCart} onClick={() => props.setCartOpened(true)}>
+                    <img width={18} height={18} src={HeaderCart} alt=""/>
+                    <p>{cartLength}</p>
+                </li>
+                <li className={s.headerPrice}><span>{formatPrice(totalCost)} руб.</span></li>
                 <Link to={'/order'}>
                     <li className={s.headerAvatar}>
                         <img width={18} height={18} src={HeaderAvatar} alt=""/>

@@ -112,7 +112,12 @@ function App() {
                     addToCart={addToCart}
                 />
                 }
-                <Header setCartOpened={setCartOpened} totalCost={totalCost}/>
+                <Header
+                    setCartOpened={setCartOpened}
+                    totalCost={totalCost}
+                    cartLength={selectedProducts.length}
+                    favoritesLength={favorites.length}
+                />
                 <Route path={'/'} exact>
                     <HomePage
                         searchStr={searchStr}

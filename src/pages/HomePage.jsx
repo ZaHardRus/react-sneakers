@@ -20,16 +20,18 @@ export const HomePage = ({
             ? [...Array(8)].map((el, i) => <Card
                 key={i}
                 isLoading={isLoading}
+                sizes={[36,38,39,41,43]}
             />)
             : filtredItems).map((el, i) => <Card
             setSelectedProducts={setSelectedProducts}
             key={i}
             info={el}
-            addToCart={() => addToCart(el)}
+            addToCart={addToCart}
             addToFavorites={() => addToFavorites(el)}
             favorite={isItemFavorited(el.id)}
             added={isItemAdded(el.id)}
             isLoading={isLoading}
+            sizes={el.sizes}
         />)
     }
     return (

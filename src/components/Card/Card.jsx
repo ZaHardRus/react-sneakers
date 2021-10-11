@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState} from "react";
 import s from './Card.module.scss'
 import HeartDisabled from "../../assets/heart-disabled.svg";
 import HeartActive from "../../assets/heart-active.svg";
@@ -14,16 +14,18 @@ export const Card = ({info,
                      }) => {
 
     const {isItemAdded, isItemFavorited} = useContext(AppContext)
+    const sizes = [36,38,39,41,43];
+    const [selectedSize,setSelectedSize] = useState(sizes[0])
 
     const setProduct = () => {
         const {id, name, price, imageUrl} = info
-        addToCart({id, name, price, imageUrl})
-
+        addToCart({id,name, price, imageUrl, size:selectedSize})
     }
     const setFavorites = () => {
         const {id, name, price, imageUrl} = info
         addToFavorites({id, name, price, imageUrl})
     }
+
     return (
         isLoading
             ? <div className={s.card}>
@@ -63,6 +65,12 @@ export const Card = ({info,
                     <div className='d-flex justify-between flex-column  '>
                         <p className={s.cardPrice1}>Цена:</p>
                         <p className={s.cardPrice2}>{formatPrice(info.price)} руб.</p>
+                    </div>
+                    <div>
+                        <p className={s.sizesTitle}>Размер:</p>
+                        <select defaultValue={selectedSize} onChange={(e)=>setSelectedSize(e.target.value)}>
+                            {sizes.map(el=> <option key={el} value={el}>{el}</option>)}
+                        </select>
                     </div>
                     <div>
                         <img

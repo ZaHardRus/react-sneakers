@@ -4,7 +4,7 @@ import ButtonDelete from "../../assets/delete.svg";
 import ArrowNext from "../../assets/arrow-next.svg";
 import OrderAdded from "../../assets/orderAdded.png";
 import {Info} from "../Info/Info";
-import React, {useContext, useEffect, useRef, useState} from "react";
+import React, {useContext, useEffect, useState} from "react";
 import axios from "axios";
 import {AppContext} from "../../App";
 import {formatPrice} from "../../utils/formatPrice";
@@ -61,8 +61,9 @@ export const Drawer = ({selectedProducts, setSelectedProducts, ...props}) => {
                                 {selectedProducts.map((el) =>
                                     <div key={el.id} className={s.cartItem}>
                                         <img height={70} width={70} src={el.imageUrl} alt=""/>
-                                        <div>
+                                        <div className={s.itemInfo}>
                                             <p>{el.name}</p>
+                                            <p className={s.size}>{el.size} размер</p>
                                             <b>{formatPrice(el.price)} руб.</b>
                                         </div>
                                         <div onClick={() => props.addToCart(el)} className={s.delete}>
@@ -77,11 +78,6 @@ export const Drawer = ({selectedProducts, setSelectedProducts, ...props}) => {
                                         <span>Итого: </span>
                                         <div className={s.dashedLine}/>
                                         <b>{new Intl.NumberFormat('ru-RU').format(totalCost)}руб.</b>
-                                    </li>
-                                    <li className={s.total}>
-                                        <span>Налог 5%: </span>
-                                        <div className={s.dashedLine}/>
-                                        <b>1074 руб. </b>
                                     </li>
                                 </ul>
                                 <button
