@@ -22,11 +22,19 @@
     padding: 20px;
     display: flex;
     border-radius: 10px;
+    @media (max-width: 600px){
+      justify-content: space-evenly;
+    }
     @media (max-width: 900px){
       max-width: 90%;
       max-height: 90%;
       flex-direction: column;
-      justify-content: space-evenly;
+    }
+    @media (max-width: 1200px){
+      max-width: 90%;
+      max-height: 90%;
+
+
     }
     img{
       max-width: 100%;
