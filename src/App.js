@@ -1,11 +1,13 @@
 import React, {useEffect, useRef, useState} from "react";
-import {Route} from "react-router-dom";
+import {Route, Switch} from "react-router-dom";
 import {Drawer} from "./components/Drawer/Drawer";
 import {Header} from "./components/Header/Header";
 import {HomePage} from "./pages/HomePage";
 import {FavoritesPage} from "./pages/FavoritesPage";
 import axios from "axios";
 import {OrdersPage} from "./pages/OrdersPage";
+import {ProductPage} from "./pages/ProductPage";
+
 
 export const AppContext = React.createContext({})
 
@@ -21,9 +23,9 @@ function App() {
     let [searchStr, setSearchStr] = useState('')
     let [totalCost, setTotalCost] = useState(calcCost)
     const body = useRef(document.body)
-    if(cartOpened){
+    if (cartOpened) {
         body.current.style.overflow = 'hidden'
-    }else{
+    } else {
         body.current.style.overflow = 'auto'
     }
     const addToFavorites = async (obj) => {
@@ -118,29 +120,32 @@ function App() {
                     cartLength={selectedProducts.length}
                     favoritesLength={favorites.length}
                 />
-                <Route path={'/'} exact>
-                    <HomePage
-                        searchStr={searchStr}
-                        searchHandler={searchHandler}
-                        setSelectedProducts={setSelectedProducts}
-                        addToCart={addToCart}
-                        addToFavorites={addToFavorites}
-                        setFavorites={setFavorites}
-                        isLoading={isLoading}
-                    />
-                </Route>
-                <Route path={'/favorites'} exact>
-                    <FavoritesPage
-                        setFavorites={setFavorites}
-                        addToCart={addToCart}
-                        addToFavorites={addToFavorites}
-                        setSelectedProducts={setSelectedProducts}
-                        selectedProducts={selectedProducts}
-                    />
-                </Route>
-                <Route path={'/order'} exact>
-                    <OrdersPage/>
-                </Route>
+                <Switch>
+                    <Route path={'/'} exact>
+                        <HomePage
+                            searchStr={searchStr}
+                            searchHandler={searchHandler}
+                            setSelectedProducts={setSelectedProducts}
+                            addToCart={addToCart}
+                            addToFavorites={addToFavorites}
+                            setFavorites={setFavorites}
+                            isLoading={isLoading}
+                        />
+                    </Route>
+                    <Route path={'/favorites'} exact>
+                        <FavoritesPage
+                            setFavorites={setFavorites}
+                            addToCart={addToCart}
+                            addToFavorites={addToFavorites}
+                            setSelectedProducts={setSelectedProducts}
+                            selectedProducts={selectedProducts}
+                        />
+                    </Route>
+                    <Route path={'/order'} exact>
+                        <OrdersPage/>
+                    </Route>
+                    <Route path={'/:id'} component={ProductPage}/>
+                </Switch>
             </div>
         </AppContext.Provider>
     );

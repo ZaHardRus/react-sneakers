@@ -8,7 +8,7 @@ export const CardOrder = ({size,imageUrl, name, price}) => {
                 <img width={133}
                      height={112}
                      src={imageUrl}
-                     alt="sneaker-image"
+                     alt="sneaker"
                      className={'cu-p'}
                 />
             </div>

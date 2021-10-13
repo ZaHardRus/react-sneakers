@@ -18,7 +18,7 @@ export const FavoritesPage = ({addToCart, addToFavorites, setSelectedProducts}) 
                 title={'Закладок нет :('}
                 text={'Вы ничего не добавляли в закладки'}
                 img={favoritesEmpty}
-                backHandler={()=>backHome()}
+                backHandler={() => backHome()}
             />
         )
     }

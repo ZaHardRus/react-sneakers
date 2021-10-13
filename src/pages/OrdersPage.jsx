@@ -59,7 +59,8 @@ export const OrdersPage = () => {
                                     )}
                                 </div>
                                 <div className={'orderInfo'}>
-                                    <p className={'orderCost'}><b>Общая стоимость заказа:</b> {formatPrice(el.totalCost)} руб.</p>
+                                    <p className={'orderCost'}><b>Общая стоимость
+                                        заказа:</b> {formatPrice(el.totalCost)} руб.</p>
                                     <p className={'orderDate'}><b>Дата заказа:</b> {formatDate(el.date)}
                                     </p>
                                 </div>
