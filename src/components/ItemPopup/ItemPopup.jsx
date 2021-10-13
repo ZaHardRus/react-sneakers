@@ -28,7 +28,9 @@ export const ItemPopup = ({image,setPopupVisible}) => {
         <div className={s.overlay}>
             <div className={s.popupBlock}>
                 <div className={s.arrow} onClick={prev}>{'<'}</div>
-                <img src={parsePath(image)} alt="sneaker"/>
+                <div className="image">
+                    <img src={parsePath(image)} alt="sneaker"/>
+                </div>
                 <div className={s.close} onClick={()=>setPopupVisible(false)}>Закрыть</div>
                 <div className={s.arrow} onClick={next}>{'>'}</div>
             </div>
