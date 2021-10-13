@@ -25,6 +25,8 @@
     @media (max-width: 900px){
       max-width: 90%;
       max-height: 90%;
+      flex-direction: column;
+      justify-content: space-evenly;
     }
     img{
       max-width: 100%;
