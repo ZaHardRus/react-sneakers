@@ -8,18 +8,19 @@ import ContentLoader from "react-content-loader"
 import {AppContext} from "../../App";
 import {formatPrice} from "../../utils/formatPrice";
 
-export const Card = ({info,
-                         isLoading=false,
-                         addToCart,addToFavorites
+export const Card = ({
+                         info,
+                         isLoading = false,
+                         addToCart, addToFavorites, hideSizes
                      }) => {
 
     const {isItemAdded, isItemFavorited} = useContext(AppContext)
-    const sizes = ['size',36,38,39,41,43];
-    const [selectedSize,setSelectedSize] = useState(sizes[0])
+    const sizes = ['- - -', 36, 38, 39, 41, 43];
+    const [selectedSize, setSelectedSize] = useState(sizes[0])
 
     const setProduct = () => {
         const {id, name, price, imageUrl} = info
-        addToCart({id,name, price, imageUrl, size:selectedSize})
+        addToCart({id, name, price, imageUrl, size: selectedSize})
     }
     const setFavorites = () => {
         const {id, name, price, imageUrl} = info
@@ -45,18 +46,25 @@ export const Card = ({info,
                 </ContentLoader>
             </div>
             : <div className={s.card}>
-                <div className='card_favorite'>
+                <div className={s.topInfo}>
                     <img
                         onClick={setFavorites}
                         src={isItemFavorited(info.id) ? HeartActive : HeartDisabled}
                         className={'cu-p'}
                         alt="like-disabled"/>
+                    {!isItemAdded(info.id) && !hideSizes && <div>
+                        <p className={s.sizesTitle}>Размер:</p>
+                        <select onChange={(e) => setSelectedSize(e.target.value)}>
+                            {sizes.map(el => <option key={el} value={el}>{el}</option>)}
+                        </select>
+                    </div>
+                    }
                 </div>
                 <div className='d-flex justify-center'>
                     <img width={133}
                          height={112}
                          src={info.imageUrl}
-                         alt=""
+                         alt="sneakers"
                          className={'cu-p'}
                     />
                 </div>
@@ -67,21 +75,13 @@ export const Card = ({info,
                         <p className={s.cardPrice2}>{formatPrice(info.price)} руб.</p>
                     </div>
                     <div>
-
-                        {!isItemAdded(info.id) &&<div>
-                            <p className={s.sizesTitle}>Размер:</p>
-                            <select onChange={(e)=>setSelectedSize(e.target.value)}>
-                                {sizes.map(el=> <option key={el} value={el}>{el}</option>)}
-                            </select>
-                        </div>
-                        }
                     </div>
                     <div>
                         <img
                             className={s.plus}
                             src={isItemAdded(info.id) ? ButtonAdded : ButtonPlus}
-                            alt=""
-                            onClick={selectedSize === sizes[0] ? ()=>alert('Перед добавлением товара в корзину уточните размер...') : setProduct}
+                            alt="toggle-add/delete-item-to-cart "
+                            onClick={selectedSize === sizes[0] ? () => alert('Перед добавлением товара в корзину уточните размер...') : setProduct}
                         />
                     </div>
                 </div>

@@ -48,7 +48,7 @@ export const Drawer = ({selectedProducts, setSelectedProducts, ...props}) => {
                     <img onClick={() => props.setCartOpened(false)}
                          className='cu-p close'
                          src={ButtonDelete}
-                         alt=""/>
+                         alt="delete"/>
                 </h2>
 
                 <div className={isOrderAdded || selectedProducts.length === 0
@@ -67,7 +67,7 @@ export const Drawer = ({selectedProducts, setSelectedProducts, ...props}) => {
                                             <b>{formatPrice(el.price)} руб.</b>
                                         </div>
                                         <div onClick={() => props.addToCart(el)} className={s.delete}>
-                                            <img src={ButtonDelete} alt=""/>
+                                            <img src={ButtonDelete} alt="delete"/>
                                         </div>
                                     </div>
                                 )}

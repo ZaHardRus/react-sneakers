@@ -14,7 +14,7 @@ export const Header = ({cartLength,favoritesLength,...props}) => {
         <header className={s.header}>
             <Link to={'/'}>
                 <div className={s.headerLeft}>
-                    <img width={40} height={40} src={HeaderLogo} alt=""/>
+                    <img width={40} height={40} src={HeaderLogo} alt="header-logo"/>
                     <div className={s.headerLeftInfo}>
                         <h3 className={s.title}>REACT SNEAKERS</h3>
                         <p className={s.text}>Магазин кроссовок</p>
@@ -24,18 +24,18 @@ export const Header = ({cartLength,favoritesLength,...props}) => {
             <ul className={s.headerRight}>
                 <Link to={'/favorites'}>
                     <li className={s.headerLike}>
-                        <img width={18} height={18} src={HeaderLike} alt=""/>
+                        <img width={18} height={18} src={HeaderLike} alt="favorites=link"/>
                         <p>{favoritesLength}</p>
                     </li>
                 </Link>
                 <li className={s.headerCart} onClick={() => props.setCartOpened(true)}>
-                    <img width={18} height={18} src={HeaderCart} alt=""/>
+                    <img width={18} height={18} src={HeaderCart} alt="cart-link"/>
                     <p>{cartLength}</p>
                 </li>
                 <li className={s.headerPrice}><span>{formatPrice(totalCost)} руб.</span></li>
                 <Link to={'/order'}>
                     <li className={s.headerAvatar}>
-                        <img width={18} height={18} src={HeaderAvatar} alt=""/>
+                        <img width={18} height={18} src={HeaderAvatar} alt="order-lonk"/>
                     </li>
                 </Link>
             </ul>

@@ -6,7 +6,7 @@ export const Info = (props) => {
         <div className={s.contentEmpty}>
             <div className={s.empty}>
                 <div className={'d-flex justify-center align-center'}>
-                    <img width={120} height={120} src={props.img} alt=""/>
+                    <img width={120} height={120} src={props.img} alt="empty-smile"/>
                 </div>
                 <div className='text-center'>
                     <h3>{props.title}</h3>

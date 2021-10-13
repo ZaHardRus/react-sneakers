@@ -15,6 +15,7 @@ export const OrdersPage = () => {
     const backHome = () => {
         history.push('./')
     }
+    console.log(myOrders)
     useEffect(() => {
         try {
             setIsLoading(true)
@@ -54,6 +55,7 @@ export const OrdersPage = () => {
                                             name={item.name}
                                             price={item.price}
                                             imageUrl={item.imageUrl}
+                                            size={item.size}
                                         />
                                     )}
                                 </div>

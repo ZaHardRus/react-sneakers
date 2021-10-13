@@ -15,28 +15,21 @@
 
   .cardPrice1{
     color: #BDBDBD;
-    font-size: 11px;
+    font-size: 14px;
   }
 
   .cardPrice2 {
     font-weight: bold;
-    font-size: 14px;
+    font-size: 16px;
+    text-align: center;
   }
 
-  &_favorite {
-    position: absolute;
-    width: 32px;
-    height: 32px;
-    border: 1px solid #ECECEC;
-    border-radius: 7px;
+  .topInfo{
     display: flex;
-    align-items: center;
-    justify-content: center;
-    cursor: pointer;
+    justify-content: space-between;
   }
 
   .plus {
-
     width: 35px;
     height: 35px;
     cursor: pointer;
@@ -64,8 +57,7 @@
 select{
   border-radius: 10px;
   font-weight: bold;
-  max-height: 17px;
-  font-size: 12px;
+  font-size: 16px;
   option{
     border-radius: 10px;
     background-color: #d2f1ff;
