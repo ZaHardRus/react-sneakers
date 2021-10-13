@@ -11,7 +11,7 @@ import {formatPrice} from "../../utils/formatPrice";
 export const Card = ({
                          info,
                          isLoading = false,
-                         addToCart, addToFavorites, hideSizes
+                         addToCart, addToFavorites
                      }) => {
 
     const {isItemAdded, isItemFavorited} = useContext(AppContext)
@@ -52,7 +52,7 @@ export const Card = ({
                         src={isItemFavorited(info.id) ? HeartActive : HeartDisabled}
                         className={'cu-p'}
                         alt="like-disabled"/>
-                    {!isItemAdded(info.id) && !hideSizes && <div>
+                    {!isItemAdded(info.id) && <div>
                         <p className={s.sizesTitle}>Размер:</p>
                         <select onChange={(e) => setSelectedSize(e.target.value)}>
                             {sizes.map(el => <option key={el} value={el}>{el}</option>)}
@@ -80,8 +80,12 @@ export const Card = ({
                         <img
                             className={s.plus}
                             src={isItemAdded(info.id) ? ButtonAdded : ButtonPlus}
-                            alt="toggle-add/delete-item-to-cart "
-                            onClick={selectedSize === sizes[0] ? () => alert('Перед добавлением товара в корзину уточните размер...') : setProduct}
+                            alt="toggle-add/delete-item-to-cart"
+                            onClick={isItemAdded(info.id)
+                                ? setProduct
+                                : selectedSize === sizes[0]
+                                    ? () => alert('Перед добавлением товара в корзину уточните размер...')
+                                    : setProduct}
                         />
                     </div>
                 </div>

@@ -24,18 +24,18 @@ export const Header = ({cartLength,favoritesLength,...props}) => {
             <ul className={s.headerRight}>
                 <Link to={'/favorites'}>
                     <li className={s.headerLike}>
-                        <img width={18} height={18} src={HeaderLike} alt="favorites=link"/>
+                        <img width={24} height={24} src={HeaderLike} alt="favorites=link"/>
                         <p>{favoritesLength}</p>
                     </li>
                 </Link>
                 <li className={s.headerCart} onClick={() => props.setCartOpened(true)}>
-                    <img width={18} height={18} src={HeaderCart} alt="cart-link"/>
+                    <img width={24} height={24} src={HeaderCart} alt="cart-link"/>
                     <p>{cartLength}</p>
                 </li>
                 <li className={s.headerPrice}><span>{formatPrice(totalCost)} руб.</span></li>
                 <Link to={'/order'}>
                     <li className={s.headerAvatar}>
-                        <img width={18} height={18} src={HeaderAvatar} alt="order-lonk"/>
+                        <img width={24} height={24} src={HeaderAvatar} alt="order-link"/>
                     </li>
                 </Link>
             </ul>

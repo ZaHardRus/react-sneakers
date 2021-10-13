@@ -38,7 +38,6 @@ export const FavoritesPage = ({addToCart, addToFavorites, setSelectedProducts}) 
                         setSelectedProducts={setSelectedProducts}
                         favorite={() => isItemFavorited(el)}
                         added={() => isItemAdded(el)}
-                        hideSizes
                     />)}
             </div>
         </div>
