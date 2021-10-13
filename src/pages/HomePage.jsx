@@ -1,6 +1,6 @@
 import Loupe from "../assets/loupe.svg";
 import {Card} from "../components/Card/Card";
-import {useContext} from "react";
+import {useContext, useState} from "react";
 import {AppContext} from "../App";
 
 export const HomePage = ({

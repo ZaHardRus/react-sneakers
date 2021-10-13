@@ -15,7 +15,6 @@ export const OrdersPage = () => {
     const backHome = () => {
         history.push('./')
     }
-    console.log(myOrders)
     useEffect(() => {
         try {
             setIsLoading(true)

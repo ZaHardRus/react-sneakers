@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useRef, useState} from "react";
 import s from './Card.module.scss'
 import HeartDisabled from "../../assets/heart-disabled.svg";
 import HeartActive from "../../assets/heart-active.svg";
@@ -7,6 +7,7 @@ import ButtonAdded from "../../assets/added.svg";
 import ContentLoader from "react-content-loader"
 import {AppContext} from "../../App";
 import {formatPrice} from "../../utils/formatPrice";
+import {ItemPopup} from "../ItemPopup/ItemPopup";
 
 export const Card = ({
                          info,
@@ -17,7 +18,8 @@ export const Card = ({
     const {isItemAdded, isItemFavorited} = useContext(AppContext)
     const sizes = ['- - -', 36, 38, 39, 41, 43];
     const [selectedSize, setSelectedSize] = useState(sizes[0])
-
+    const [popupVisible,setPopupVisible] = useState(false)
+    const body = useRef(document.body)
     const setProduct = () => {
         const {id, name, price, imageUrl} = info
         addToCart({id, name, price, imageUrl, size: selectedSize})
@@ -26,7 +28,18 @@ export const Card = ({
         const {id, name, price, imageUrl} = info
         addToFavorites({id, name, price, imageUrl})
     }
-
+    if(popupVisible){
+        body.current.style.overflow = 'hidden'
+    }else{
+        body.current.style.overflow = 'auto'
+    }
+    if(popupVisible){
+        return (
+            <ItemPopup
+                image={info.imageUrl}
+                setPopupVisible={setPopupVisible} />
+        )
+    }
     return (
         isLoading
             ? <div className={s.card}>
@@ -66,6 +79,7 @@ export const Card = ({
                          src={info.imageUrl}
                          alt="sneakers"
                          className={'cu-p'}
+                         onClick={()=>setPopupVisible(true)}
                     />
                 </div>
                 <h5>{info.name}</h5>

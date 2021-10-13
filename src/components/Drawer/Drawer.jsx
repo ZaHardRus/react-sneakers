@@ -42,7 +42,6 @@ export const Drawer = ({selectedProducts, setSelectedProducts, ...props}) => {
 
     return (
         <div className={s.overlay}>
-
             <div className={s.drawerBlock}>
                 <h2 className='d-flex justify-between'>Корзина
                     <img onClick={() => props.setCartOpened(false)}
