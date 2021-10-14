@@ -7,15 +7,13 @@ import ButtonAdded from "../../assets/added.svg";
 import ContentLoader from "react-content-loader"
 import {AppContext} from "../../App";
 import {formatPrice} from "../../utils/formatPrice";
-import {Link, useHistory} from "react-router-dom";
+import {Link} from "react-router-dom";
 
-export const Card = ({info, isLoading = false, addToCart, addToFavorites}) => {
-
+export const Card = React.memo(({info, isLoading = false, addToCart, addToFavorites, validSizes = [],allSizes}) => {
     const {isItemAdded, isItemFavorited} = useContext(AppContext)
-    const sizes = ['- - -', 36, 38, 39, 41, 43];
-    const [selectedSize, setSelectedSize] = useState(sizes[0])
-    const history = useHistory()
-
+    const sizesSneakers = allSizes.filter(el => validSizes.includes(el));
+    const [selectedSize, setSelectedSize] = useState(allSizes[0])
+    console.log(selectedSize)
     const setProduct = () => {
         const {id, name, price, imageUrl} = info
         addToCart({id, name, price, imageUrl, size: selectedSize})
@@ -24,9 +22,6 @@ export const Card = ({info, isLoading = false, addToCart, addToFavorites}) => {
         const {id, name, price, imageUrl} = info
         addToFavorites({id, name, price, imageUrl})
     }
-    // const openItem = useCallback(() => {
-    //     history.push(`${info.id}`)
-    // },[])
 
     return (
         isLoading
@@ -56,7 +51,8 @@ export const Card = ({info, isLoading = false, addToCart, addToFavorites}) => {
                     {!isItemAdded(info.id) && <div>
                         <p className={s.sizesTitle}>Размер:</p>
                         <select onChange={(e) => setSelectedSize(e.target.value)}>
-                            {sizes.map(el => <option key={el} value={el}>{el}</option>)}
+                            <option value={'---'}>{selectedSize}</option>
+                            {sizesSneakers.map(el => <option key={el} value={el}>{el}</option>)}
                         </select>
                     </div>
                     }
@@ -87,7 +83,7 @@ export const Card = ({info, isLoading = false, addToCart, addToFavorites}) => {
                             alt="toggle-add/delete-item-to-cart"
                             onClick={isItemAdded(info.id)
                                 ? setProduct
-                                : selectedSize === sizes[0]
+                                : selectedSize === allSizes[0]
                                     ? () => alert('Перед добавлением товара в корзину уточните размер...')
                                     : setProduct}
                         />
@@ -95,5 +91,5 @@ export const Card = ({info, isLoading = false, addToCart, addToFavorites}) => {
                 </div>
             </div>
     )
-}
+})
 

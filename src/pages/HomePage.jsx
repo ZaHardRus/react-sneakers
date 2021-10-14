@@ -10,22 +10,25 @@ export const HomePage = React.memo(
         const renderItems = () => {
             const filtredItems = cards.filter(el => el.name.toLowerCase().includes(searchStr.toLowerCase()))
             return (isLoading
-                ? [...Array(8)].map((el, i) => <Card
+                ? [...Array(8)].map((el, i) =>
+                    <Card
+                        key={i}
+                        isLoading={isLoading}
+                    />)
+                : filtredItems).map((el, i) =>
+                <Card
+                    setSelectedProducts={setSelectedProducts}
                     key={i}
+                    info={el}
+                    addToCart={addToCart}
+                    addToFavorites={() => addToFavorites(el)}
+                    favorite={isItemFavorited(el.id)}
+                    added={isItemAdded(el.id)}
                     isLoading={isLoading}
-                    sizes={[36, 38, 39, 41, 43]}
+                    isItemAdded={isItemAdded}
+                    validSizes={el.sizes}
+                    allSizes={[0, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46]}
                 />)
-                : filtredItems).map((el, i) => <Card
-                setSelectedProducts={setSelectedProducts}
-                key={i}
-                info={el}
-                addToCart={addToCart}
-                addToFavorites={() => addToFavorites(el)}
-                favorite={isItemFavorited(el.id)}
-                added={isItemAdded(el.id)}
-                isLoading={isLoading}
-                isItemAdded={isItemAdded}
-            />)
         }
         return (
             <div className="content p-40">
