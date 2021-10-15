@@ -25,8 +25,8 @@ export const FavoritesPage = ({addToCart, addToFavorites, setSelectedProducts}) 
 
     return (
         <div className="content p-40">
-            <div className='d-flex justify-between align-center'>
-                <h1>Закладки</h1>
+            <div className='d-flex justify-center mb-30 align-center'>
+                <h1 >Закладки</h1>
             </div>
             <div className="cards d-flex">
                 {favorites

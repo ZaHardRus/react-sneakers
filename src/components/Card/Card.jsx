@@ -59,8 +59,7 @@ export const Card = React.memo(({info, isLoading = false, addToCart, addToFavori
                 </div>
                 <div className='d-flex justify-center'>
                     <Link to={`/${info.id}`}>
-                        <img width={133}
-                             height={112}
+                        <img width={160}
                              src={info.imageUrl}
                              alt="sneakers"
                              className={'cu-p'}
