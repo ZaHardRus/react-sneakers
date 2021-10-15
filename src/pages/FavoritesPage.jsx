@@ -38,6 +38,7 @@ export const FavoritesPage = ({addToCart, addToFavorites, setSelectedProducts}) 
                         setSelectedProducts={setSelectedProducts}
                         favorite={() => isItemFavorited(el)}
                         added={() => isItemAdded(el)}
+                        allSizes={[0, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46]}
                     />)}
             </div>
         </div>
