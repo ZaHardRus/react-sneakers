@@ -21,7 +21,7 @@ export const HomePage = React.memo(
                     key={i}
                     info={el}
                     addToCart={addToCart}
-                    addToFavorites={() => addToFavorites(el)}
+                    addToFavorites={()=>addToFavorites(el)}
                     favorite={isItemFavorited(el.id)}
                     added={isItemAdded(el.id)}
                     isLoading={isLoading}

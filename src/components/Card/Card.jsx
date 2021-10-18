@@ -19,8 +19,7 @@ export const Card = React.memo(({info, isLoading = false, addToCart, addToFavori
         addToCart({id, name, price, imageUrl, size: selectedSize})
     }
     const setFavorites = () => {
-        const {id, name, price, imageUrl} = info
-        addToFavorites({id, name, price, imageUrl})
+        addToFavorites()
     }
     const select = useRef()
     return (

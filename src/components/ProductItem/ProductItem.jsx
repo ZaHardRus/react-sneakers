@@ -3,7 +3,7 @@ import {useState} from "react";
 
 export const ProductItem = ({
                                 id, price, image = '',
-                                loading, title = '', description = '',
+                                loading, title = '', description = '',sizes,
                                 redirect, addToFavorites, isItemFavorited
                             }) => {
     let [slide, setSlide] = useState(0)
@@ -22,7 +22,7 @@ export const ProductItem = ({
         }
     }
     const clickFavorites = () => {
-        addToFavorites({id, title, price, imageUrl: image})
+        addToFavorites()
     }
     return (
         <div className={s.productWrapper}>

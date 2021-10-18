@@ -22,7 +22,7 @@ export const ProductPage = ({addToFavorites,isItemFavorited}) => {
                      redirect={() => push('/')}
                      loading={isLoading}
                      description={item.description}
-                     addToFavorites={addToFavorites}
+                     addToFavorites={()=>addToFavorites(item)}
                      isItemFavorited={isItemFavorited}
         />
     )
