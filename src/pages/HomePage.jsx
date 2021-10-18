@@ -27,7 +27,7 @@ export const HomePage = React.memo(
                     isLoading={isLoading}
                     isItemAdded={isItemAdded}
                     validSizes={el.sizes}
-                    allSizes={[0, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46]}
+                    allSizes={[35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46]}
                 />)
         }
         return (

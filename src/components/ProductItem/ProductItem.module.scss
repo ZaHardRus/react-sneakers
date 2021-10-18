@@ -104,3 +104,38 @@
     max-height: 100%;
   }
 }
+.arrowLeft,
+.arrowRight{
+  margin: 20px 8px;
+  border-radius: 50%;
+  border: 2px solid #337AB7;
+  width: 50px;
+  height: 50px;
+  cursor: pointer;
+  box-shadow: 0 0 12px 4px #BFE2FF;
+  background: radial-gradient(#fff, #BFE2FF);
+  @media (max-width: 600px) {
+    max-width: 30px;
+    max-height: 30px;
+  }
+}
+.arrowLeft path,
+.arrowRight path{
+  fill: rgba(191, 226, 255, 0.6);
+  stroke-width: 2;
+  stroke: #337AB7;
+  transition: fill 0.5s ease-out;
+}
+.arrowRight {
+  transform: rotate(180deg);
+}
+.arrowLeft:hover path,
+.arrowRight:hover path{
+  fill: #337AB7;
+}
+.description{
+  text-indent: 2rem;
+  text-align: justify;
+  line-height: 1.8;
+  padding: 30px;
+}

@@ -59,7 +59,7 @@ export const Drawer = ({selectedProducts, setSelectedProducts, ...props}) => {
                             <div className={s.cartItemsWrapper}>
                                 {selectedProducts.map((el) =>
                                     <div key={el.id} className={s.cartItem}>
-                                        <img height={70} width={70} src={el.imageUrl} alt=""/>
+                                        <img height={70} width={70} src={el.imageUrl[0]} alt=""/>
                                         <div className={s.itemInfo}>
                                             <p>{el.name}</p>
                                             <p className={s.size}>{el.size} размер</p>
@@ -89,7 +89,6 @@ export const Drawer = ({selectedProducts, setSelectedProducts, ...props}) => {
                             </div>
 
                         </>
-
                         :
                         <Info
                             img={isOrderAdded ? OrderAdded : EmptyCart}

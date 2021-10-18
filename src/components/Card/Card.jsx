@@ -1,4 +1,4 @@
-import React, {useContext, useState} from "react";
+import React, {useContext, useRef, useState} from "react";
 import s from './Card.module.scss'
 import HeartDisabled from "../../assets/heart-disabled.svg";
 import HeartActive from "../../assets/heart-active.svg";
@@ -13,7 +13,7 @@ export const Card = React.memo(({info, isLoading = false, addToCart, addToFavori
     const {isItemAdded, isItemFavorited} = useContext(AppContext)
     const sizesSneakers = allSizes.filter(el => validSizes.includes(el));
     const [selectedSize, setSelectedSize] = useState(allSizes[0])
-    console.log(selectedSize)
+
     const setProduct = () => {
         const {id, name, price, imageUrl} = info
         addToCart({id, name, price, imageUrl, size: selectedSize})
@@ -22,7 +22,7 @@ export const Card = React.memo(({info, isLoading = false, addToCart, addToFavori
         const {id, name, price, imageUrl} = info
         addToFavorites({id, name, price, imageUrl})
     }
-
+    const select = useRef()
     return (
         isLoading
             ? <div className={s.card}>
@@ -50,8 +50,8 @@ export const Card = React.memo(({info, isLoading = false, addToCart, addToFavori
                         alt="like-disabled"/>
                     {!isItemAdded(info.id) && <div>
                         <p className={s.sizesTitle}>Размер:</p>
-                        <select onChange={(e) => setSelectedSize(e.target.value)}>
-                            <option value={'---'}>{selectedSize}</option>
+                        <select ref={select} onChange={(e) => setSelectedSize(e.target.value)}>
+                            <option value={'---'}>{'---'}</option>
                             {sizesSneakers.map(el => <option key={el} value={el}>{el}</option>)}
                         </select>
                     </div>
@@ -60,7 +60,7 @@ export const Card = React.memo(({info, isLoading = false, addToCart, addToFavori
                 <div className='d-flex justify-center'>
                     <Link to={`/${info.id}`}>
                         <img width={160}
-                             src={info.imageUrl}
+                             src={info.imageUrl[0]}
                              alt="sneakers"
                              className={'cu-p'}
                         />

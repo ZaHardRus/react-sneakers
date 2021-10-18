@@ -15,6 +15,6 @@ export const ProductPage = () => {
             .finally(() => setIsLoading(false))
     }, [])
     return (
-        <ProductItem title={item.name} image={item.imageUrl} redirect={() => push('/')} loading={isLoading}/>
+        <ProductItem title={item.name} image={item.imageUrl} redirect={() => push('/')} loading={isLoading} description={item.description}/>
     )
 }
