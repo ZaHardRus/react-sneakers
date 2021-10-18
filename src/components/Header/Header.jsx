@@ -32,7 +32,7 @@ export const Header = ({cartLength,favoritesLength,...props}) => {
                     <img width={24} height={24} src={HeaderCart} alt="cart-link"/>
                     <p>{cartLength}</p>
                 </li>
-                <li className={s.headerPrice}><span>{formatPrice(totalCost)} руб.</span></li>
+                {cartLength ? <li className={s.headerPrice}><span>{formatPrice(totalCost)} руб.</span></li> : null}
                 <Link to={'/order'}>
                     <li className={s.headerAvatar}>
                         <img width={24} height={24} src={HeaderAvatar} alt="order-link"/>

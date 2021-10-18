@@ -1,7 +1,11 @@
 import s from './ProductItem.module.scss'
 import {useState} from "react";
 
-export const ProductItem = ({image = '', loading, title = '', description = '', redirect}) => {
+export const ProductItem = ({
+                                id, price, image = '',
+                                loading, title = '', description = '',
+                                redirect, addToFavorites, isItemFavorited
+                            }) => {
     let [slide, setSlide] = useState(0)
     const next = () => {
         if (slide >= image.length - 1) {
@@ -17,7 +21,9 @@ export const ProductItem = ({image = '', loading, title = '', description = '', 
             setSlide(prev => prev - 1)
         }
     }
-
+    const clickFavorites = () => {
+        addToFavorites({id, title, price, imageUrl: image})
+    }
     return (
         <div className={s.productWrapper}>
             <h1 className={s.title}>{title}</h1>
@@ -40,7 +46,10 @@ export const ProductItem = ({image = '', loading, title = '', description = '', 
                 </div>
             </div>
             <p className={s.description}>{description}</p>
-            <button className='green_button' onClick={redirect}>На главную</button>
+            <div className="btns-wrapper">
+                <button className='red_button' onClick={clickFavorites}>{isItemFavorited(id)?'Убрать из избранного':'Добавить в избранное'}</button>
+                <button className='green_button' onClick={redirect}>На главную</button>
+            </div>
         </div>
     )
 }

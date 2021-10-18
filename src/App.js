@@ -144,11 +144,15 @@ function App() {
                     <Route path={'/order'} exact>
                         <OrdersPage/>
                     </Route>
-                    <Route path={'/:id'} component={ProductPage}/>
+                    <Route path={'/:id'}>
+                        <ProductPage
+                            isItemFavorited={isItemFavorited}
+                            addToFavorites={addToFavorites} />
+                    </Route>
                 </Switch>
             </div>
         </AppContext.Provider>
-    );
+);
 }
 
 export default App;

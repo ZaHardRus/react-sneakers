@@ -1,8 +1,10 @@
 .header {
   border-bottom: 1px solid #EAEAEA;
+  border-radius: 15px 15px;
   display: flex;
   justify-content: space-between;
   padding: 40px;
+  background-color: rgba(#488aa6,.5);
   
 
   .headerLeft {
@@ -49,7 +51,7 @@ li{
 .headerPrice{
   font-style: italic;
   font-weight: bold;
-  color: #9b9b9b;
+  color: #000;
 }
 .headerLike{
   p{

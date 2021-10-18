@@ -3,7 +3,7 @@ import axios from "axios";
 import {useHistory, useLocation} from "react-router-dom";
 import {ProductItem} from "../components/ProductItem/ProductItem";
 
-export const ProductPage = () => {
+export const ProductPage = ({addToFavorites,isItemFavorited}) => {
     const id = useLocation().pathname.slice(1)
     const [item, setItem] = useState({})
     const [isLoading, setIsLoading] = useState(false)
@@ -15,6 +15,15 @@ export const ProductPage = () => {
             .finally(() => setIsLoading(false))
     }, [])
     return (
-        <ProductItem title={item.name} image={item.imageUrl} redirect={() => push('/')} loading={isLoading} description={item.description}/>
+        <ProductItem title={item.name}
+                     id={item.id}
+                     price={item.price}
+                     image={item.imageUrl}
+                     redirect={() => push('/')}
+                     loading={isLoading}
+                     description={item.description}
+                     addToFavorites={addToFavorites}
+                     isItemFavorited={isItemFavorited}
+        />
     )
 }

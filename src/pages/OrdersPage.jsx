@@ -53,7 +53,7 @@ export const OrdersPage = () => {
                                             key={item.ObjectId}
                                             name={item.name}
                                             price={item.price}
-                                            imageUrl={item.imageUrl}
+                                            imageUrl={item.imageUrl[0]}
                                             size={item.size}
                                         />
                                     )}
