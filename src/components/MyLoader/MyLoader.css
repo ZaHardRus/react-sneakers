@@ -6,13 +6,14 @@
 }
 .lds-circle > div {
     display: inline-block;
-    width: 84px;
-    height: 84px;
+    width: 200px;
+    height: 200px;
     margin: 8px;
     border-radius: 50%;
-    background: #f6924a;
+    background-image: url(../../assets/header-logo.png);
+    background-repeat: no-repeat;
+    background-size: cover;
     animation: lds-circle 2.4s cubic-bezier(0, 0.2, 0.8, 1) infinite;
-    border: 5px dashed #4f98c9;
 }
 .textLoader{
     position: absolute;

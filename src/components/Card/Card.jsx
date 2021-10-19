@@ -27,7 +27,7 @@ export const Card = React.memo(({info, isLoading = false, addToCart, addToFavori
                 <ContentLoader
                     speed={2}
                     width={160}
-                    height={210}
+                    height={300}
                     viewBox="0 0 155 210"
                     backgroundColor="#f3f3f3"
                     foregroundColor="#ecebeb"

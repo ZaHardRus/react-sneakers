@@ -5,7 +5,6 @@ export const MyLoader = ({text}) => {
             <div className="lds-circle">
                 <div className={'text-center'}/>
             </div>
-            <h3 className={'textLoader'}>{text}</h3>
         </div>
 
     )

@@ -5,6 +5,9 @@
   border-radius: 40px;
   transition: .3s;
   background-color: #fff;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 
   &:hover {
     background: #FFFFFF;
