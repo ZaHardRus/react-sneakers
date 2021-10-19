@@ -123,6 +123,7 @@ h1, h2, h3, h4, h5, h6, p {
   padding: 20px;
   gap: 30px;
   margin-bottom: 20px;
+  background-color: rgba(#fff,.5);
 
   .cardOrder {
     display: flex;
@@ -133,47 +134,27 @@ h1, h2, h3, h4, h5, h6, p {
 
 .orderInfo {
   display: flex;
-  justify-content: center;
+  flex-direction: column;
   gap: 10px;
+  align-items: flex-start;
 }
 
 .orderCost,
 .orderDate {
   border: 1px solid grey;
   border-radius: 10px;
-  display: inline-block;
   padding: 5px;
-  background-color: #ffffd8;
+  background-color: #fff;
 }
 
 .search {
   display: flex;
   gap: 40px;
   padding: 40px;
-}
-
-@media(max-width: 760px) {
-  .search {
-    display: flex;
+  @media (max-width: 650px) {
     flex-direction: column;
   }
 }
-
-@keyframes slide {
-  0% {
-    transform: scale(1);
-
-  }
-  50% {
-    transform: scale(.4);
-  }
-  100%{
-    transform: scale(.8);
-  }
-}
-.swap {
-  animation: slide 1s ease-in-out 0.5s 2 alternate;
-  transition: .5s;
-  -moz-animation: slide 1s ease-in-out 0.5s 2 alternate;
-  -webkit-animation: slide 1s ease-in-out 0.5s 2 alternate;
+.SliderWrapper{
+  height: 500px;
 }

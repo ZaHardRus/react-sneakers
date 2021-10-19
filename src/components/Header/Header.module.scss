@@ -19,7 +19,7 @@
 
   .headerRight {
     display: flex;
-    align-items: center;
+    align-items: flex-start;
     gap: 30px;
 
     .headerCart, .headerAvatar, .headerLike {
@@ -54,7 +54,14 @@ li{
   color: #000;
 }
 .headerLike{
+  img{
+    transform: scale(.9);
+  }
   p{
     background-color: red;
   }
+}
+.headerGroup{
+  display: flex;
+  gap: 2px;
 }
