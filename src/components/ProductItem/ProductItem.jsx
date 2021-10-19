@@ -33,8 +33,11 @@ export const ProductItem = ({
                 <div className={s.image}>
                     {loading ? <p className={s.loading}>Загрузка изображения...</p> :
                         <Slider
+                            onSlideComplete={(i) => {
+                                setSlide(i)
+                            }}
                             activeIndex={slide}
-                            threshHold={200}
+                            threshHold={100}
                             transition={0.8}
                             scaleOnDrag={true}
                         >
