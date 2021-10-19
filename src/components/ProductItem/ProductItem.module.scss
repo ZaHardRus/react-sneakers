@@ -2,6 +2,8 @@
   padding-bottom: 60px;
 }
 .product{
+  width: 60%;
+  margin: 0 auto;
   position: relative;
   border-radius: 10%;
   display: flex;
@@ -10,7 +12,9 @@
   align-items: center;
   gap: 10px;
   background-color: #fff;
-
+  @media (max-width: 900px){
+    width: 100%;
+  }
 }
 .title{
   text-align: center;
@@ -81,7 +85,6 @@
   line-height: 1.8;
   padding: 30px;
   background-color: rgba(#fff,.7);
-  border-radius: 10%;
   margin: 20px 0;
 }
 
