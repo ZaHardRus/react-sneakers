@@ -33,13 +33,13 @@ export const FavoritesPage = ({addToCart, addToFavorites, setSelectedProducts}) 
                     .map((el, i) => <Card
                         key={el.id}
                         info={el}
-                        addToCart={() => addToCart(el)}
-                        addToFavorites={() => addToFavorites(el)}
+                        addToCart={addToCart}
+                        addToFavorites={addToFavorites}
                         setSelectedProducts={setSelectedProducts}
-                        favorite={() => isItemFavorited(el)}
+                        favorite={()=>isItemFavorited(el)}
                         added={() => isItemAdded(el)}
                         validSizes={el.sizes}
-                        allSizes={[0, 35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46]}
+                        allSizes={[35, 36, 37, 38, 39, 40, 41, 42, 43, 44, 45, 46]}
                     />)}
             </div>
         </div>

@@ -15,11 +15,10 @@ export const Card = React.memo(({info, isLoading = false, addToCart, addToFavori
     const [selectedSize, setSelectedSize] = useState(allSizes[0])
 
     const setProduct = () => {
-        const {id, name, price, imageUrl} = info
-        addToCart({id, name, price, imageUrl, size: selectedSize})
+        addToCart({...info, size: selectedSize})
     }
     const setFavorites = () => {
-        addToFavorites()
+        addToFavorites({...info, size: selectedSize})
     }
     const select = useRef()
     return (

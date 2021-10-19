@@ -1,5 +1,5 @@
 import s from './ProductItem.module.scss'
-import {useState} from "react";
+import {useRef, useState} from "react";
 
 export const ProductItem = ({
                                 id, price, image = '',
@@ -7,20 +7,31 @@ export const ProductItem = ({
                                 redirect, addToFavorites, isItemFavorited
                             }) => {
     let [slide, setSlide] = useState(0)
+    const slider = useRef()
+    console.log(slider)
     const next = () => {
-        if (slide >= image.length - 1) {
-            setSlide(0)
-        } else {
-            setSlide(prev => prev + 1)
-        }
+        slider.current.className = 'swap'
+        setTimeout(()=>{
+            if (slide >= image.length - 1) {
+                setSlide(0)
+            } else {
+                setSlide(prev => prev + 1)
+            }
+            slider.current.className = ''
+        },[1500])
     }
     const prev = () => {
-        if (slide <= 0) {
-            setSlide(image.length - 1)
-        } else {
-            setSlide(prev => prev - 1)
-        }
+        slider.current.className = 'swap'
+        setTimeout(()=>{
+            if (slide <= 0) {
+                setSlide(image.length - 1)
+            } else {
+                setSlide(prev => prev - 1)
+            }
+            slider.current.className = ''
+        },[1500])
     }
+
     const clickFavorites = () => {
         addToFavorites()
     }
@@ -36,7 +47,7 @@ export const ProductItem = ({
                 <div className={s.image}>
                     {
                         loading ? <p className={s.loading}>Загрузка изображения...</p> :
-                            <img src={image[slide]} alt="sneaker"/>
+                            <img className='slider' ref={slider} src={image[slide]} alt="sneaker"/>
                     }
                 </div>
                 <div className={s.arrow} onClick={next}>
