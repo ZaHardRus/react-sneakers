@@ -1,15 +1,15 @@
-##Clone down this repository. You will need node and npm installed globally on your machine.
+## Clone down this repository. You will need node and npm installed globally on your machine.  
 
-Installation:
-####npm install
+Installation:  
+#### npm install  
 
-## Available Scripts
+## Available Scripts  
 
-In the project directory, you can run:
+In the project directory, you can run:  
 
-#### npm start
+#### npm start  
 
-##Link for preview:
-https://zahard-sneakers.herokuapp.com/
+## Link for preview:  
+https://zahard-sneakers.herokuapp.com/  
 
 
