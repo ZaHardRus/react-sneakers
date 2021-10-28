@@ -9,7 +9,7 @@ import {AppContext} from "../../App";
 import {formatPrice} from "../../utils/formatPrice";
 import {Link} from "react-router-dom";
 
-export const Card = React.memo(({info, isLoading = false, addToCart, addToFavorites, validSizes = [],allSizes}) => {
+export const Card = ({info, isLoading = false, addToCart, addToFavorites, validSizes = [],allSizes}) => {
     const {isItemAdded, isItemFavorited} = useContext(AppContext)
     const sizesSneakers = allSizes.filter(el => validSizes.includes(el));
     const [selectedSize, setSelectedSize] = useState(allSizes[0])
@@ -88,5 +88,5 @@ export const Card = React.memo(({info, isLoading = false, addToCart, addToFavori
                 </div>
             </div>
     )
-})
+}
 

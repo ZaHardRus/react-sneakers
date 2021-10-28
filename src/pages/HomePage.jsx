@@ -3,6 +3,7 @@ import Loupe from "../assets/loupe.svg";
 import {Card} from "../components/Card/Card";
 import {useContext} from "react";
 import {AppContext} from "../App";
+import {MainSlider} from "../components/Slider/Slider";
 
 export const HomePage = React.memo(
     ({searchStr, searchHandler, addToCart, addToFavorites, isLoading, setSelectedProducts}) => {
@@ -31,7 +32,8 @@ export const HomePage = React.memo(
                 />)
         }
         return (
-            <div className="content p-20">
+            <div className="content">
+                <MainSlider/>
                 <div className='search d-flex justify-between align-center'>
                     {searchStr ? <h1>Идет поиск</h1> : <h1>Все кроссовки</h1>}
                     <div className="search-block d-flex align-center">
