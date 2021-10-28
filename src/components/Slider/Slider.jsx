@@ -35,7 +35,7 @@ export const MainSlider = () => {
             clearInterval(flipInterval.current)
         }
     },[])
-    console.log(index)
+
     return (
         <div className={'image'}
              onMouseLeave={()=>autoPlay()}

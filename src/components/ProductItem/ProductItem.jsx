@@ -1,6 +1,7 @@
 import s from './ProductItem.module.scss'
 import {useState} from "react";
 import Slider from 'react-touch-drag-slider'
+import {Loader} from "../Loader/Loader";
 
 export const ProductItem = ({
                                 id, price, image = [],
@@ -31,7 +32,7 @@ export const ProductItem = ({
             <h1 className={s.title}>{title}</h1>
             <div className={s.product}>
                 <div className={s.image}>
-                    {loading ? <p className={s.loading}>Загрузка изображения...</p> :
+                    {loading ? <p className={s.loading}><Loader/></p> :
                         <Slider
                             onSlideComplete={(i) => {
                                 setSlide(i)
