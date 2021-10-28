@@ -11,8 +11,7 @@ export const MainSlider = () => {
     const image = [slideImage4,slideImage1,slideImage3,slideImage2,slideImage5]
     let [index, setIndex] = useState(0)
     let flipInterval = useRef(null);
-
-    useEffect(() => {
+    const autoPlay = () => {
         let next = true
         flipInterval.current = setInterval(() => {
             if (index === image.length - 1) {
@@ -27,6 +26,9 @@ export const MainSlider = () => {
                 setIndex(index -= 1)
             }
         }, 5000)
+    }
+    useEffect(() => {
+        autoPlay()
     }, [])
     useEffect(()=>{
         return function (){
@@ -35,7 +37,10 @@ export const MainSlider = () => {
     },[])
     console.log(index)
     return (
-        <div className={'image'}>
+        <div className={'image'}
+             onMouseLeave={()=>autoPlay()}
+             onMouseEnter={()=>clearInterval(flipInterval.current)
+             }>
             <Slider
                 infinite
                 activeIndex={index}

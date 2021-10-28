@@ -1,9 +1,10 @@
-.productWrapper{
+.productWrapper {
   padding-bottom: 60px;
 }
-.product{
+
+.product {
   width: 100%;
-  border-radius: 50px 50px 0 0 ;
+  border-radius: 50px 50px 0 0;
   margin: 0 auto;
   position: relative;
   display: flex;
@@ -12,15 +13,17 @@
   align-items: center;
   gap: 10px;
   background-color: #fff;
-  @media (max-width: 900px){
+  @media (max-width: 900px) {
     width: 100%;
   }
 }
-.title{
+
+.title {
   text-align: center;
   margin: 20px;
 }
-.loading{
+
+.loading {
   font-size: 24px;
   width: 500px;
   height: 500px;
@@ -28,30 +31,34 @@
   align-items: center;
   justify-content: center;
 }
-.loader{
+
+.loader {
   display: flex;
   align-items: center;
   justify-content: center;
   margin: 0 auto;
   font-size: 40px;
 }
-.arrow{
+
+.arrow {
   text-align: center;
   height: 50%;
   cursor: pointer;
 }
-.image{
+
+.image {
   text-align: center;
   height: 500px;
   max-width: 90%;
 
-  img{
+  img {
     max-width: 100%;
     max-height: 100%;
   }
 }
+
 .arrowLeft,
-.arrowRight{
+.arrowRight {
   margin: 0 0 20px 0;
   border-radius: 50%;
   border: 2px solid #337AB7;
@@ -65,44 +72,49 @@
     max-height: 50px;
   }
 }
+
 .arrowLeft path,
-.arrowRight path{
+.arrowRight path {
   fill: rgba(191, 226, 255, 0.6);
   stroke-width: 2;
   stroke: #337AB7;
   transition: fill 0.5s ease-out;
 }
+
 .arrowRight {
   transform: rotate(180deg);
 }
+
 .arrowLeft:hover path,
-.arrowRight:hover path{
+.arrowRight:hover path {
   fill: #337AB7;
 }
-.description{
+
+.description {
   text-indent: 2rem;
   text-align: justify;
   line-height: 1.8;
   padding: 30px;
-  background-color: rgba(#fff,.7);
+  background-color: rgba(#fff, .7);
   margin: 0 0 20px 0;
   border-radius: 0 0 50px 50px;
 }
 
-.arrowLeft{
+.arrowLeft {
 
-    position: absolute;
-    left: 40px;
-    top:50%;
-    @media (max-width: 800px) {
-      top: 85%;
-    }
+  position: absolute;
+  left: 40px;
+  top: 50%;
+  @media (max-width: 800px) {
+    top: 85%;
+  }
 }
-.arrowRight{
-    position: absolute;
-    right: 40px;
-    top:50%;
-    @media (max-width: 800px) {
-      top: 85%;
+
+.arrowRight {
+  position: absolute;
+  right: 40px;
+  top: 50%;
+  @media (max-width: 800px) {
+    top: 85%;
   }
 }
