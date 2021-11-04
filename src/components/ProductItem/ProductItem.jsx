@@ -32,7 +32,7 @@ export const ProductItem = ({
             <h1 className={s.title}>{title}</h1>
             <div className={s.product}>
                 <div className={s.image}>
-                    {loading ? <p className={s.loading}><Loader/></p> :
+                    {loading ? <div className={s.loading}><Loader/></div> :
                         <Slider
                             onSlideComplete={(i) => {
                                 setSlide(i)
@@ -61,7 +61,7 @@ export const ProductItem = ({
                 </div>
 
             </div>
-            <p className={s.description}>{description}</p>
+            <div className={s.description}>{description}</div>
             <div className="btns-wrapper">
                 <button className='red_button'
                         onClick={clickFavorites}>{isItemFavorited(id) ? 'Убрать из избранного' : 'Добавить в избранное'}</button>

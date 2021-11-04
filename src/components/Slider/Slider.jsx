@@ -29,6 +29,7 @@ export const MainSlider = () => {
     }
     useEffect(() => {
         autoPlay()
+        // eslint-disable-next-line
     }, [])
     useEffect(()=>{
         return function (){

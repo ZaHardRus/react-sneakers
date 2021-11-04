@@ -90,12 +90,13 @@ function App() {
                 alert("Произошла ошибка при получении данных...")
             }
         }
-
         fetchData();
+        // eslint-disable-next-line
     }, [])
 
     useEffect(() => {
         setTotalCost(calcCost())
+        // eslint-disable-next-line
     }, [selectedProducts])
 
     return (

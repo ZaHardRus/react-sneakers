@@ -38,6 +38,7 @@ export const Drawer = ({selectedProducts, setSelectedProducts, ...props}) => {
     useEffect(() => {
         axios.get(`https://613631038700c50017ef5490.mockapi.io/cart`)
             .then(res => setSelectedProducts(res.data))
+        // eslint-disable-next-line
     }, []);
 
     return (

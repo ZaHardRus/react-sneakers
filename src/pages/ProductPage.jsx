@@ -13,6 +13,7 @@ export const ProductPage = ({addToFavorites,isItemFavorited}) => {
         axios.get(`https://613631038700c50017ef5490.mockapi.io/products/${id}`)
             .then(res => setItem(res.data))
             .finally(() => setIsLoading(false))
+        // eslint-disable-next-line
     }, [])
     return (
         <ProductItem title={item.name}
